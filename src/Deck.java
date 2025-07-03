@@ -1,26 +1,25 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class Deck {
     private ArrayList<Card> cards;
 
     public Deck() {
-        Color[] colors = {Color.RED, Color.BLACK};
-        Suit[] suits = {Suit.CLUBS, Suit.SPADES, Suit.DIAMONDS, Suit.HEARTS};
-        Rank[] ranks = {Rank.ACE, Rank.TWO, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX,
-                Rank.SEVEN, Rank.EIGHT, Rank.NINE, Rank.TEN, Rank.JACK, Rank.QUEEN, Rank.KING};
+        CardColor[] colors = {CardColor.RED, CardColor.BLACK};
+        CardSuit[] cardSuits = {CardSuit.CLUBS, CardSuit.SPADES, CardSuit.DIAMONDS, CardSuit.HEARTS};
+        CardRank[] cardRanks = {CardRank.ACE, CardRank.TWO, CardRank.THREE, CardRank.FOUR, CardRank.FIVE, CardRank.SIX,
+                CardRank.SEVEN, CardRank.EIGHT, CardRank.NINE, CardRank.TEN, CardRank.JACK, CardRank.QUEEN, CardRank.KING};
         this.cards = new ArrayList<Card>();
         for (int i = 0; i < colors.length; i++) {
-            for (int j = 0; j < suits.length; j++) {
-                if (((colors[i] == Color.RED) && (suits[j] == Suit.CLUBS)) ||
-                        ((colors[i] == Color.RED) && (suits[j] == Suit.SPADES)) ||
-                        ((colors[i] == Color.BLACK) && (suits[j] == Suit.HEARTS)) ||
-                        ((colors[i] == Color.BLACK) && (suits[j] == Suit.DIAMONDS))) {
+            for (int j = 0; j < cardSuits.length; j++) {
+                if (((colors[i] == CardColor.RED) && (cardSuits[j] == CardSuit.CLUBS)) ||
+                        ((colors[i] == CardColor.RED) && (cardSuits[j] == CardSuit.SPADES)) ||
+                        ((colors[i] == CardColor.BLACK) && (cardSuits[j] == CardSuit.HEARTS)) ||
+                        ((colors[i] == CardColor.BLACK) && (cardSuits[j] == CardSuit.DIAMONDS))) {
                     continue;
                 }
-                for (int k = 0; k < ranks.length; k++) {
-                    cards.add(new Card(colors[i], suits[j], ranks[k]));
+                for (int k = 0; k < cardRanks.length; k++) {
+                    cards.add(new Card(colors[i], cardSuits[j], cardRanks[k]));
                 }
             }
         }
@@ -30,10 +29,18 @@ public class Deck {
         return cards;
     }
 
+    public Card drawCard() {
+        return cards.removeLast();
+    }
+
+    public void shuffle() {
+        Collections.shuffle(cards);
+    }
+
     public static void printDeck(Deck deck) {
         ArrayList<Card> cardArrayList = deck.getCards();
         for (int i = 0; i < cardArrayList.size(); i++) {
-            System.out.println(i);
+            System.out.println(i+1);
             Card.printCard(cardArrayList.get(i));
         }
     }

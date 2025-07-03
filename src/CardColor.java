@@ -1,4 +1,4 @@
-public enum Color {
+public enum CardColor {
     RED, BLACK;
 
     public String toString() {

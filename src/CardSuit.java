@@ -1,4 +1,4 @@
-public enum Suit {
+public enum CardSuit {
     CLUBS, DIAMONDS, HEARTS, SPADES;
 
     public String toString() {

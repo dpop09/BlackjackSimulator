@@ -5,35 +5,35 @@ class InvalidCardException extends IllegalArgumentException {
 }
 
 public class Card {
-    private final Color color;
-    private final Suit suit;
-    private final Rank rank;
+    private final CardColor color;
+    private final CardSuit cardSuit;
+    private final CardRank cardRank;
 
-    public Card(Color color, Suit suit, Rank rank) {
-        ValidateColorAndSuit(color, suit);
+    public Card(CardColor color, CardSuit cardSuit, CardRank cardRank) {
+        ValidateColorAndSuit(color, cardSuit);
         this.color = color;
-        this.suit = suit;
-        this.rank = rank;
+        this.cardSuit = cardSuit;
+        this.cardRank = cardRank;
     }
 
-    private void ValidateColorAndSuit(Color color, Suit suit) throws InvalidCardException {
-        if (((color.toString().equals("Black")) && suit.toString().equals("Hearts")) ||
-                ((color.toString().equals("Black")) && suit.toString().equals("Diamonds")) ||
-                ((color.toString().equals("Red")) && suit.toString().equals("Clubs")) ||
-                ((color.toString().equals("Red")) && suit.toString().equals("Spades"))) {
+    private void ValidateColorAndSuit(CardColor color, CardSuit cardSuit) throws InvalidCardException {
+        if (((color.toString().equals("Black")) && cardSuit.toString().equals("Hearts")) ||
+                ((color.toString().equals("Black")) && cardSuit.toString().equals("Diamonds")) ||
+                ((color.toString().equals("Red")) && cardSuit.toString().equals("Clubs")) ||
+                ((color.toString().equals("Red")) && cardSuit.toString().equals("Spades"))) {
             throw new InvalidCardException("A card with the color " + color.toString().toLowerCase() +
-                    " and the suit " + suit.toString().toLowerCase() + " is not legal.");
+                    " and the suit " + cardSuit.toString().toLowerCase() + " is not legal.");
         }
     }
 
-    public Color getColor() {
+    public CardColor getColor() {
         return color;
     }
-    public Suit getSuit() {
-        return suit;
+    public CardSuit getSuit() {
+        return cardSuit;
     }
-    public Rank getRank() {
-        return rank;
+    public CardRank getRank() {
+        return cardRank;
     }
 
     public static void printCard(Card card) {
