@@ -29,19 +29,26 @@ public class Deck {
         return cards;
     }
 
+    public int getDeckSize() {
+        return cards.size();
+    }
+
     public Card drawCard() {
-        return cards.removeLast();
+        // check if the deck is not empty
+        if (getDeckSize() > 0) {
+            return cards.removeLast();
+        }
+        return null;
     }
 
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
-    public static void printDeck(Deck deck) {
-        ArrayList<Card> cardArrayList = deck.getCards();
-        for (int i = 0; i < cardArrayList.size(); i++) {
+    public void printDeck() {
+        for (int i = 0; i < getDeckSize(); i++) {
             System.out.println(i+1);
-            Card.printCard(cardArrayList.get(i));
+            Card.printCard(cards.get(i));
         }
     }
 }

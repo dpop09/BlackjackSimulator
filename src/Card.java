@@ -36,6 +36,11 @@ public class Card {
         return cardRank;
     }
 
+    public String getCardFileName() {
+        String fileName = getRank().toString() + "_of_" + getSuit().toString() + ".png";
+        return fileName.toLowerCase();
+    }
+
     public static void printCard(Card card) {
         System.out.println("Color: " + card.getColor() + "\nSuit: " + card.getSuit() + "\nRank: " + card.getRank());
     }

@@ -4,15 +4,15 @@ public enum CardRank {
     public String toString() {
         return switch (this) {
             case ACE -> "Ace";
-            case TWO -> "Two";
-            case THREE -> "Three";
-            case FOUR -> "Four";
-            case FIVE -> "Five";
-            case SIX -> "Six";
-            case SEVEN -> "Seven";
-            case EIGHT -> "Eight";
-            case NINE -> "Nine";
-            case TEN -> "Ten";
+            case TWO -> "2";
+            case THREE -> "3";
+            case FOUR -> "4";
+            case FIVE -> "5";
+            case SIX -> "6";
+            case SEVEN -> "7";
+            case EIGHT -> "8";
+            case NINE -> "9";
+            case TEN -> "10";
             case JACK -> "Jack";
             case QUEEN -> "Queen";
             case KING -> "King";

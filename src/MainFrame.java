@@ -14,6 +14,7 @@ public class MainFrame extends JFrame { // MainFrame IS the JFrame
     public static final String MENU_PANEL = "Menu";
     public static final String SETTINGS_PANEL = "Settings";
     public static final String GAME_PANEL = "Game";
+    public static final String GAME_SETTINGS_PANEL = "Game Settings";
 
     public MainFrame() {
         // Configure the JFrame itself
@@ -30,11 +31,13 @@ public class MainFrame extends JFrame { // MainFrame IS the JFrame
         MenuPanel menuPanel = new MenuPanel(this);
         SettingsPanel settingsPanel = new SettingsPanel(this);
         GamePanel gamePanel = new GamePanel(this);
+        GameSettingsPanel gameSettingsPanel = new GameSettingsPanel(this);
 
         // Add each panel to the cardPanel with a unique name
         cardPanel.add(menuPanel, MENU_PANEL);
         cardPanel.add(settingsPanel, SETTINGS_PANEL);
         cardPanel.add(gamePanel, GAME_PANEL);
+        cardPanel.add(gameSettingsPanel, GAME_SETTINGS_PANEL);
 
         // Add the cardPanel to the JFrame's content pane
         add(cardPanel, BorderLayout.CENTER);

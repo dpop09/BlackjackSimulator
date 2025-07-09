@@ -11,7 +11,7 @@ public class MenuPanel extends JPanel {
     public MenuPanel(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         setLayout(new GridBagLayout()); // Use GridBagLayout for flexible centering
-        setBackground(new Color(50, 150, 200)); // A nice blue background
+        setBackground(new Color(0, 100, 0)); // A dark green background
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 0, 10, 0); // Padding between components
@@ -30,7 +30,7 @@ public class MenuPanel extends JPanel {
         startGameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuPanel.this.mainFrame.showPanel(MainFrame.GAME_PANEL); // Request to show the game panel
+                MenuPanel.this.mainFrame.showPanel(MainFrame.GAME_SETTINGS_PANEL); // Request to show the game panel
             }
         });
         gbc.gridy = 1;
